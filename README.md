@@ -1,5 +1,12 @@
-# Firebase Studio
+# Career Pilot
 
-This is a NextJS starter in Firebase Studio.
+Career Pilot is an AI-powered career guidance platform built using Next.js and Firebase.
 
-To get started, take a look at src/app/page.tsx.
+##  Getting Started
+
+To run the project locally:
+
+```bash
+npm install
+npm run dev
+```
