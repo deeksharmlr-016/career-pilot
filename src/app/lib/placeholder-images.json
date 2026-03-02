@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "Professional career path visual",
+      "imageUrl": "https://picsum.photos/seed/career/1200/600",
+      "imageHint": "career technology"
+    },
+    {
+      "id": "community-preview",
+      "description": "Community working together",
+      "imageUrl": "https://picsum.photos/seed/community/800/600",
+      "imageHint": "community people"
+    },
+    {
+      "id": "analysis-bg",
+      "description": "Data analysis and charts",
+      "imageUrl": "https://picsum.photos/seed/data/800/600",
+      "imageHint": "data analysis"
+    }
+  ]
+}

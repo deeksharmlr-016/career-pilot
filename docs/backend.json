@@ -1,0 +1,86 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Basic user data including skills and experience.",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "photoURL": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "experience": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "CareerAnalysis": {
+      "title": "Career Fit Analysis",
+      "description": "AI-generated career recommendations.",
+      "type": "object",
+      "properties": {
+        "recommendedRoles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": { "type": "string" },
+              "matchScore": { "type": "number" },
+              "reasoning": { "type": "string" }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "UserRoadmap": {
+      "title": "User Roadmap",
+      "description": "A personalized career roadmap with progress tracking.",
+      "type": "object",
+      "properties": {
+        "goal": { "type": "string" },
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "tasks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "description": { "type": "string" },
+                    "type": { "type": "string", "enum": ["learning", "practice", "project"] },
+                    "resources": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "completedTaskIds": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile document."
+    },
+    "/users/{userId}/analyses/{analysisId}": {
+      "schema": { "$ref": "#/entities/CareerAnalysis" },
+      "description": "User's historical analyses."
+    },
+    "/users/{userId}/roadmaps/{roadmapId}": {
+      "schema": { "$ref": "#/entities/UserRoadmap" },
+      "description": "User's personalized roadmaps with tracking."
+    }
+  }
+}
